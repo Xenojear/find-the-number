@@ -15,7 +15,7 @@ function verificarIntento() {
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
     
     if (numeroDeUsuario === numeroSecreto) {
-        asignarTextoElemento('p',`Acertaste el número en ${intentos} ${(intentos === 1) ? 'vez' : 'veces'}`);
+        asignarTextoElemento('p',`Adivinaste el número en ${intentos} ${(intentos === 1) ? 'intento, que pro.' : 'intentos.'}`);
         document.getElementById('reiniciar').removeAttribute('disabled');
     } else {
         //El usuario no acertó.
@@ -41,7 +41,7 @@ function generarNumeroSecreto() {
     console.log(listaNumerosSorteados);
     //Si ya sorteamos todos los números
     if (listaNumerosSorteados.length == numeroMaximo) {
-        asignarTextoElemento('p','Ya se sortearon todos los números posibles');
+        asignarTextoElemento('p','Ya se jugaron todos los números. Apretá F5');
     } else {
         //Si el numero generado está incluido en la lista 
         if (listaNumerosSorteados.includes(numeroGenerado)) {
@@ -54,8 +54,8 @@ function generarNumeroSecreto() {
 }
 
 function condicionesIniciales() {
-    asignarTextoElemento('h1','Juego del número secreto!');
-    asignarTextoElemento('p',`Indica un número del 1 al ${numeroMaximo}`);
+    asignarTextoElemento('h1','~El juego piola~');
+    asignarTextoElemento('p',`Escribí un número entre el 1 y el ${numeroMaximo}`);
     numeroSecreto = generarNumeroSecreto();
     intentos = 1;
     console.log(numeroSecreto);
